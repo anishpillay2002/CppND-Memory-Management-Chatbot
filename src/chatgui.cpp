@@ -65,6 +65,11 @@ void ChatBotFrame::OnEnter(wxCommandEvent &WXUNUSED(event))
      _panelDialog->GetChatLogicHandle()->SendMessageToChatbot(std::string(userText.mb_str()));
 }
 
+ChatBotFrame::~ChatBotFrame(){
+    delete _panelDialog;
+    delete _userTextCtrl;
+}
+
 BEGIN_EVENT_TABLE(ChatBotFrameImagePanel, wxPanel)
 EVT_PAINT(ChatBotFrameImagePanel::paintEvent) // catch paint events
 END_EVENT_TABLE()
